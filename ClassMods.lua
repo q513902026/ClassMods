@@ -5,7 +5,7 @@
 local L = LibStub("AceLocale-3.0"):GetLocale("ClassMods")
 local media = LibStub("LibSharedMedia-3.0")
 local AceConfigDialog3 = nil
-
+local locale = GetLocale():match("zh")
 function ClassMods:OnInitialize()
 	-- Setup Saved Variables
 	ClassMods.db = LibStub("AceDB-3.0"):New("CMDb", ClassMods.defaults)
@@ -252,14 +252,26 @@ end
 
 function ClassMods.AbbreviateNumber(rawNumber)
 	local newNumber
-	if rawNumber > 1000000 then
-		newNumber = ("%.01fM"):format(rawNumber/1000000)
-	end
-	if rawNumber <= 1000000 then
-		newNumber = ("%.01fK"):format(rawNumber/1000)
-	end
-	if rawNumber <= 1000 then
-		newNumber = rawNumber
+	if locale == "zh" then
+		if rawNumber > 100000000 then
+			newNumber = ("%.01fE"):format(rawNumber/100000000)
+		end
+		if rawNumber <= 100000000 then
+			newNumber = ("%.01fW"):format(rawNumber/10000)
+		end
+		if rawNumber <= 10000 then
+			newNumber = rawNumber
+		end
+	else
+		if rawNumber > 1000000 then
+			newNumber = ("%.01fM"):format(rawNumber/1000000)
+		end
+		if rawNumber <= 1000000 then
+			newNumber = ("%.01fK"):format(rawNumber/1000)
+		end
+		if rawNumber <= 1000 then
+			newNumber = rawNumber
+		end
 	end
 	return newNumber
 end
