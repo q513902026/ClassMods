@@ -4,11 +4,11 @@
 
 local L = LibStub("AceLocale-3.0"):GetLocale("ClassMods")
 
-local SPELL_POWER_ARCANE_CHARGES = SPELL_POWER_ARCANE_CHARGES or Enum.PowerType.ArcaneCharges
-local SPELL_POWER_HOLY_POWER = SPELL_POWER_HOLY_POWER or Enum.PowerType.HolyPower
-local SPELL_POWER_SOUL_SHARDS = SPELL_POWER_SOUL_SHARDS or Enum.PowerType.SoulShards
-local SPELL_POWER_CHI = SPELL_POWER_CHI or Enum.PowerType.Chi
-local SPELL_POWER_COMBO_POINTS = SPELL_POWER_COMBO_POINTS or Enum.PowerType.ComboPoints
+ SPELL_POWER_ARCANE_CHARGES = SPELL_POWER_ARCANE_CHARGES or Enum.PowerType.ArcaneCharges
+ SPELL_POWER_HOLY_POWER = SPELL_POWER_HOLY_POWER or Enum.PowerType.HolyPower
+ SPELL_POWER_SOUL_SHARDS = SPELL_POWER_SOUL_SHARDS or Enum.PowerType.SoulShards
+ SPELL_POWER_CHI = SPELL_POWER_CHI or Enum.PowerType.Chi
+ SPELL_POWER_COMBO_POINTS = SPELL_POWER_COMBO_POINTS or Enum.PowerType.ComboPoints
 
 --
 -- Setup Alternate Resource Bar
@@ -259,7 +259,37 @@ function ClassMods.SetupAltResourceBar()
 								end
 							end
 						end
-					
+						-- 添加毁灭术士 余烬数量显示
+						for i = 1 ,#ClassMods.F.AltResourceBar.Icon do
+							local icon = ClassMods.F.AltResourceBar.Icon[i]
+							if icon.text then icon.text:Hide() end
+						end
+						
+						if (playerClass == "WARLOCK") and (playerSpec ==3) and (arg2=="SOUL_SHARDS") then
+							local index = numPoints+1
+							if index > #ClassMods.F.AltResourceBar.Icon then 
+								index = #ClassMods.F.AltResourceBar.Icon 
+							end
+							local icon = ClassMods.F.AltResourceBar.Icon[index]
+							if not icon.text then 
+								local text = icon:CreateFontString(nil,"OVERLAY","GameFontHighlightSmall") 
+								text:SetWidth(36)
+								local f1, f2, f3 = text:GetFont()
+								text:SetFont(f1, f2+1, "THICKOUTLINE")
+								text:SetJustifyH("RIGHT")
+								text:SetJustifyV("MIDDLE")
+								text:SetVertexColor(1, 1, 1)
+								text:SetPoint("CENTER",icon,"CENTER",-10,0)
+								icon.text = text
+							end
+							local shards = UnitPower("player",Enum.PowerType.SoulShards,true) - numPoints *10
+							if shards ==0 then shards = "" end
+							--print(shards)
+							icon.text:SetText(shards)
+							icon.text:Show()
+						end
+						-- 添加结束
+						
 						for i=(numPoints + 1),#ClassMods.F.AltResourceBar.Icon do
 							if (ClassMods.F.AltResourceBar.Icon[i].Active) then
 								ClassMods.F.AltResourceBar.Icon[i].Active = false
@@ -272,7 +302,6 @@ function ClassMods.SetupAltResourceBar()
 										ClassMods.F.AltResourceBar.Icon[i].Texture:SetAtlas(atlasOff, false)
 									end
 								end
-
 								if (playerClass == "MAGE") and (playerSpec == 1) then -- Arcane Mage
 									ClassMods.F.AltResourceBar.Icon[i]:SetAlpha(0.1)
 								end

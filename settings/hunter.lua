@@ -80,7 +80,7 @@ ClassMods.classSpells = {
 		{ 185901,	30,	SPELL_POWER_FOCUS }, -- Marked Shot
 	},
 	[3] = { -- Survival
-		{ 206505,	30,	SPELL_POWER_FOCUS }, -- A Murder of Crows
+		--{ 206505,	30,	SPELL_POWER_FOCUS }, -- A Murder of Crows
 		{ 187708,	40,	SPELL_POWER_FOCUS }, -- Carve
 		{ 202800,	50,	SPELL_POWER_FOCUS }, -- Flanking Strike
 		{ 185855,	35,	SPELL_POWER_FOCUS }, -- Lacerate
@@ -162,7 +162,7 @@ ClassMods.timerbarDefaults = {
 	-- { 1,			2,		3,				4,						5,					6,	7,				8,		9,			10,	11,	12,	13,	14,  15,16, 17, 18, 19,	20  },	-- Index
 		{ 19574,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   1,	0.5 },	-- Bestial Wrath
 		{ 131894,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   2,	0.5 },	-- A Murder of Crows
-		{ 206505,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   3,	0.5 },	-- A Murder of Crows
+		--{ 206505,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   3,	0.5 },	-- A Murder of Crows
 		{ 186257,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   4,	0.5 },	-- Aspect of the Cheetah
 		{ 186289,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   5,	0.5 },	-- Aspect of the Eagle
 		{ 186265,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   6,	0.5 },	-- Aspect of the Turtle
@@ -233,14 +233,14 @@ ClassMods.timerbarDefaults = {
 	["timerbar3"] = {
 	--	{ 1,			2,		3,				4,					5,					6,	7,				8,		9,		10,	11,	12,	13,	14,  15,16, 17, 18,	19,	20  },	-- Index
 		{ 131894,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   1,	0.5 },	--	A Murder of Crows
-		{ 206505,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   2,	0.5 },	--	A Murder of Crows
+		--{ 206505,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   2,	0.5 },	--	A Murder of Crows
 		{ 194599,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   3,	0.5 },	--	Black Arrow
 		{ 194279,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   4,	0.5 },	--	Caltrops
 		{ 5116,		nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   5,	0.5 },	--	Concussive Shot
 		{ 194858,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   6,	0.5 },	--	Dragonsfire Grenage
 		{ 13812,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   7,	0.5 },	--	Explosive Trap
 		{ 3355,		nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   8,	0.5 },	--	Freezing Trap
-		{ 185365,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   9,	0.5 },	--	Hunters Mark
+		{ 257284,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   9,	0.5 },	--	Hunters Mark
 		{ 24394,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 10,	0.5 },	--	Intimidation
 		{ 185855,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 11,	0.5 },	--	Lacerate
 		{ 200108,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 12,	0.5 },	--	Rangers Net
@@ -249,7 +249,7 @@ ClassMods.timerbarDefaults = {
 		{ 162487,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 15,	0.5 },	--	Steel Trap
 		{ 162480,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 16,	0.5 },	--	Steel Trap
 		{ 191241,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 17,	0.5 },	--	Sticky Bomb
-		{ 187131,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 18,	0.5 },	--	Vulnerable
+		--{ 187131,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 18,	0.5 },	--	Vulnerable
 		{ 195645,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 19,	0.5 },	--	Wing Clip
 		{ 19386,	nil,	"target",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1, 20,	0.5 },	--	Wyvern Sting
 	},
@@ -285,6 +285,7 @@ ClassMods.alertDefaults = {
 		target = "player",
 		sparkles = true,
 	},
+	--[[
 	[select(1, GetSpellInfo(223138))] = { -- Marking Targets
 		enabled = true,
 		alerttype = "BUFF",
@@ -294,6 +295,7 @@ ClassMods.alertDefaults = {
 		target = "player",
 		sparkles = true,
 	},
+	]]--
 	[select(1, GetSpellInfo(185791))] = { -- Wild Call
 		enabled = true,
 		alerttype = "BUFF",

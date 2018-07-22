@@ -47,7 +47,7 @@ ClassMods.ticks = {
 		{ false,	nil,			true,	false, {1,1,1,1}, SPELL_POWER_RAGE, false },
 	},
 	[3] = { -- Protection
-		{ true,		204488,	true,	false, {1,1,1,1}, SPELL_POWER_RAGE, false }, -- Focused Rage
+		{ false,		204488,	true,	false, {1,1,1,1}, SPELL_POWER_RAGE, false }, -- Focused Rage
 		{ true,		190456,	true,	false, {1,1,1,1}, SPELL_POWER_RAGE, false }, -- Ignore Pain
 		{ false,	nil,			true,	false, {1,1,1,1}, SPELL_POWER_RAGE, false },
 		{ false,	nil,			true,	false, {1,1,1,1}, SPELL_POWER_RAGE, false },
@@ -84,7 +84,7 @@ ClassMods.classSpells = {
 		{ 202168,	10, SPELL_POWER_RAGE }, --	Impending Victory
 		{ 2565,		10, SPELL_POWER_RAGE }, --	Shield Block
 		{ 190456,	60, SPELL_POWER_RAGE }, --	Ignore Pain
-		{ 204488,	30, SPELL_POWER_RAGE }, --	Focused Rage
+		--{ 204488,	30, SPELL_POWER_RAGE }, --	Focused Rage
 	},
 }
 
@@ -107,7 +107,7 @@ ClassMods.stacks = {
 	--	{ 1,			2,				3,			 4, 5, 			6				}, -- index
 		{ true,		100,			"player", 2, "AtMax",	"charge"	}, -- Charge
 		{ false,	12294,		"player", 2, "AtMax",	"charge"	}, -- Mortal Strike
-		{ false,	207982,	"player", 3, "AtMax",	"aura"		}, -- Focused Rage
+		--{ false,	7384,	"player", 3, "AtMax",	"aura"		}, -- Focused Rage
 
 	},
 	[2] = { -- Fury
@@ -116,7 +116,7 @@ ClassMods.stacks = {
 		{ false,	202539,	"player", 3, "AtMax",	"aura"		}, -- Frenzy
 	},
 	[3] = { -- Protection
-		{ true,		204488,	"player", 3, "AtMax",	"aura"		}, --	Focused Rage
+		--{ true,		204488,	"player", 3, "AtMax",	"aura"		}, --	Focused Rage
 		{ false,	198304,	"player", 2, "AtMax",	"charge"	}, --	Intercept
 		{ false,	202602,	"player", 5, "AtMax",	"aura"		}, --	Into the Fray
 	},
@@ -175,7 +175,7 @@ ClassMods.timerbarDefaults = {
 		{ 118038,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   13,	0.5 },	--	Die by the Sword
 		{ 118000,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   14,	0.5 },	--	Dragon Roar
 		{ 184364,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   15,	0.5 },	--	Enraged Regeneration
-		{ 204488,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   16,	0.5 },	--	Focused Rage
+		--{ 7384,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   16,	0.5 },	--	Focused Rage
 		{ 6544,		nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   17,	0.5 },	--	Heroic Leap
 		{ 57755,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   18,	0.5 },	--	Heroic Throw
 		{ 202168,	nil,	"player",	"COOLDOWN",	"PLAYERS",	0,	"CENTER",	nil,	true,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   19,	0.5 },	--	Impending Victory
@@ -204,7 +204,7 @@ ClassMods.timerbarDefaults = {
 		{ 12292,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   4,	0.5 },	--	Bloodbath
 		{ 202164,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   5,	0.5 },	--	Bounding Strides
 		{ 97463,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   6,	0.5 },	--	Commanding Shout
-		{ 125565,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   7,	0.5 },	--	Demoralizing Shout
+		--{ 125565,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   7,	0.5 },	--	Demoralizing Shout
 		{ 118038,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   8,	0.5 },	--	Die by the Sword
 		{ 118000,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   9,	0.5 },	--	Dragon Roar
 		{ 184362,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   10,	0.5 },	--	Enrage
@@ -224,7 +224,7 @@ ClassMods.timerbarDefaults = {
 		{ 871,		nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   25,	0.5 },	--	Shield Wall
 		{ 23920,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   26,	0.5 },	--	Spell Reflection
 		{ 206333,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   27,	0.5 },	--	Taste for Blood
-		{ 122510,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   28,	0.5 },	--	Ultimatum
+		--{ 122510,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   28,	0.5 },	--	Ultimatum
 		{ 202573,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   29,	0.5 },	--	Vengence: Focused Rage
 		{ 202574,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   30,	0.5 },	--	Vengence: Ignore Pain
 		{ 32216,	nil,	"player",	"DURATION",	"PLAYERS",	0,	"CENTER",	nil,	nil,	nil,	nil,	nil,	nil,	0.4,	1,	0,	nil,	1,   31,	0.5 },	--	Victory Rush
@@ -306,6 +306,7 @@ ClassMods.alertDefaults = {
 		target = "player",
 		sparkles = true
 	},
+	--[[
 	[select(1, GetSpellInfo(122510))] = { -- Ultimatum 
 		enabled = true,
 		alerttype = "BUFF",
@@ -314,7 +315,7 @@ ClassMods.alertDefaults = {
 		aura = 122510,
 		target = "player",
 		sparkles = true
-	},
+	},]]--
 	[select(1, GetSpellInfo(32216))] = { -- Victory Rush
 		enabled = true,
 		alerttype = "BUFF",

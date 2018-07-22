@@ -443,7 +443,7 @@ function ClassMods.SetupResourceBar()
 					self:SetAlpha(0) -- Hide for pet battles
 				elseif ClassMods.db.profile.resourcebar.deadoverride and UnitIsDeadOrGhost("player") then
 					self:SetAlpha(ClassMods.db.profile.resourcebar.deadoverridealpha)
-				elseif ClassMods.db.profile.resourcebar.mountoverride and (IsMounted() or UnitHasVehicleUI("player") ) and (UnitBuff("player", "Telaari Talbuk") == nil) and (UnitBuff("player", "Frostwolf War Wolf") == nil) and (UnitBuff("player", "Rune of Grasping Earth") == nil) then
+				elseif ClassMods.db.profile.resourcebar.mountoverride and (IsMounted() or UnitHasVehicleUI("player") ) and (AuraUtil.FindAuraByName("Telaari Talbuk","player") == nil) and (AuraUtil.FindAuraByName("Frostwolf War Wolf","player") == nil) and (AuraUtil.FindAuraByName("Rune of Grasping Earth","player") == nil) then
 					self:SetAlpha(ClassMods.db.profile.resourcebar.mountoverridealpha)
 				elseif ClassMods.db.profile.resourcebar.oocoverride and (not InCombatLockdown() ) then
 					self:SetAlpha(ClassMods.db.profile.resourcebar.oocoverridealpha)
@@ -604,16 +604,16 @@ function ClassMods.SetupResourceBar()
 					checkStacksFunction = function(self)
 						local numBuffs = 0
 						for i=1,#ClassMods.rollTheBones do
-							if (UnitAura("player", GetSpellInfo(ClassMods.rollTheBones[i]), nil,"HELPFUL")) then
+							if (AuraUtil.FindAuraByName( GetSpellInfo(ClassMods.rollTheBones[i]), "player","HELPFUL")) then
 								numBuffs = numBuffs + 1
 							end
 						end
 						return numBuffs
 					end
 				else
-					checkStacksFunction = function(self) return(select(4, UnitAura(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][3], GetSpellInfo(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][2]), nil,"HELPFUL") ) or select(4, UnitAura(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][3], GetSpellInfo(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][2]), nil,"PLAYER|HARMFUL") ) or 0) end
+					checkStacksFunction = function(self) return(select(3, AuraUtil.FindAuraByName(GetSpellInfo(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][2]), ClassMods.db.profile.resourcebar.stacks[playerSpec][i][3],"HELPFUL") ) or select(3,  AuraUtil.FindAuraByName(GetSpellInfo(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][2]), ClassMods.db.profile.resourcebar.stacks[playerSpec][i][3],"PLAYER|HARMFUL") ) or 0) end
 				end
-			elseif (ClassMods.db.profile.resourcebar.stacks[playerSpec][i][6] == "charge") and (GetSpellCharges(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][2]) > 1 ) then
+			elseif (ClassMods.db.profile.resourcebar.stacks[playerSpec][i][6] == "charge") and ((GetSpellCharges(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][2]) or 0) > 1 ) then
 				checkStacksFunction = function(self) return(select(1, GetSpellCharges(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][2]) ) or 0) end
 				numBars = select(2, GetSpellCharges(ClassMods.db.profile.resourcebar.stacks[playerSpec][i][2]))
 			end

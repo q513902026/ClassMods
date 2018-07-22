@@ -451,13 +451,13 @@ function ClassMods.GetSpellCost(id, spec)
 	returnCost = spellCost
 	
 	if (select(2, UnitClass("player")) == "DEATHKNIGHT") then
-		if (id == 49998) and UnitAura("player", GetSpellInfo(219788)) then -- Death Strike and Ossuary buff
+		if (id == 49998) and  AuraUtil.FindAuraByName( GetSpellInfo(219788),"PLAYER") then -- Death Strike and Ossuary buff
 			returnCost = spellCost - 5
 		end
 	end
 	
 	if (select(2, UnitClass("player")) == "DRUID") then
-		if UnitAura("player", GetSpellInfo(106951)) then -- Berserk
+		if AuraUtil.FindAuraByName(GetSpellInfo(106951),"player") then -- Berserk
 			returnCost = spellCost - ceil(spellCost * .5)
 		elseif IsPlayerSpell(114107) and (id == 191034) then -- Soul of the Forest talent and Starfall
 			returnCost = spellCost - 10
@@ -465,15 +465,15 @@ function ClassMods.GetSpellCost(id, spec)
 	end
 	
 	if (select(2, UnitClass("player")) == "WARRIOR") then
-		if IsPlayerSpell(227266) and UnitAura("player", GetSpellInfo(1719)) then -- Deadly Calm Talent and player cast Battle Cry
+		if IsPlayerSpell(227266) and AuraUtil.FindAuraByName(GetSpellInfo(1719),"player") then -- Deadly Calm Talent and player cast Battle Cry
 			returnCost = 0	
 		elseif IsPlayerSpell(202922) and (id == 184367) then -- Carnage Talent and spell is Rampage
 			returnCost = spellCost - 20
 		elseif IsPlayerSpell(202297) then -- Dauntless Talent
 			returnCost = spellCost - ceil(spellCost * .2)
-		elseif (id == 204488) and UnitAura("player", GetSpellInfo(202573)) then -- Vengence: Focused Rage buff
+		elseif (id == 204488) and AuraUtil.FindAuraByName( GetSpellInfo(202573),"player") then -- Vengence: Focused Rage buff
 			returnCost = spellCost - ceil(spellCost * .5)
-		elseif (id == 190456) and UnitAura("player", GetSpellInfo(202574)) then -- Vengence: Ignore Pain buff
+		elseif (id == 190456) and AuraUtil.FindAuraByName( GetSpellInfo(202574),"player") then -- Vengence: Ignore Pain buff
 			returnCost = spellCost - ceil(spellCost * .5)
 		end
 	end
@@ -547,7 +547,7 @@ function ClassMods.CheckForDebuff(spell, target, owner)
 end
 
 function ClassMods.CheckForBuff(spell, target, owner)
-	local name, _, icon, count, debuffType, duration, expirationTime = AuraUtil.FindAuraByName(tonumber(spell) and GetSpellInfo(tonumber(spell) ) or spell,target, (owner == "PLAYERS") and "PLAYER|HELPFUL" or "HELPFUL")
+	local name, icon, count, debuffType, duration, expirationTime = AuraUtil.FindAuraByName(tonumber(spell) and GetSpellInfo(tonumber(spell) ) or spell,target, (owner == "PLAYERS") and "PLAYER|HELPFUL" or "HELPFUL")
 	return (name and icon or nil), (name and duration or 0), ( (name and (expirationTime - GetTime() ) > 0) and math.max(expirationTime - GetTime(), 0) or 0), (count)
 end
 

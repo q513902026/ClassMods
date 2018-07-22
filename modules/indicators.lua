@@ -17,7 +17,7 @@ local function checkTargetForIndicator(caller, target)
 	if(caller.indicatorTrigger == _Debuff) then
 		caller.___name,  caller.___texture, caller.___stacks, caller.____, caller.___duration, caller.___expires = AuraUtil.FindAuraByName(caller.checkID and GetSpellInfo(caller.checkID) or caller.checkName, target, "PLAYER|HARMFUL")
 	elseif(caller.indicatorTrigger == _Buff) then
-		caller.___name,caller.___texture, caller.___stacks, caller.____, caller.___duration, caller.___expires = UnitAura( caller.checkID and GetSpellInfo(caller.checkID) or caller.checkName, target,"PLAYER|HELPFUL")
+		caller.___name,caller.___texture, caller.___stacks, caller.____, caller.___duration, caller.___expires = AuraUtil.FindAuraByName( caller.checkID and GetSpellInfo(caller.checkID) or caller.checkName, target,"PLAYER|HELPFUL")
 	end
 	return caller.___name, caller.___texture, caller.___stacks
 end
