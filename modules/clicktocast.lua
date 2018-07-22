@@ -110,7 +110,7 @@ function ClassMods.SetupClickToCast()
 				_G[frame:GetName()]:SetAttribute("type2", "macro")
 				_G[frame:GetName()]:SetAttribute("macrotext", ClassMods.macroStr)
 			-- TukUI
-			elseif (frame:GetName(),1,5) == "Tukui") and (frame.unit) and (tContains(ctcFrames, frame.unit) ) then
+			elseif (strsub(frame:GetName(),1,5) == "Tukui") and (frame.unit) and (tContains(ctcFrames, frame.unit) ) then
 				ClassMods.clicktocastFrames[frame:GetName()] = frame:GetName()
 				_G[frame:GetName()]:SetAttribute("type2", "macro")
 				_G[frame:GetName()]:SetAttribute("macrotext", ClassMods.macroStr)

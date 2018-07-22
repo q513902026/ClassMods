@@ -528,7 +528,7 @@ function ClassMods.Timer_Create(self)
 end
 
 function ClassMods.CheckForDebuff(spell, target, owner)
-	local name,  icon, count, _, duration, expirationTime, _, _, _, spellId = AuraUtil.FindAuraByName(tonumber(spell) and GetSpellInfo(tonumber(spell),target) or spell, (owner == "PLAYERS") and "PLAYER|HARMFUL" or "HARMFUL")
+	local name,  icon, count, _, duration, expirationTime, _, _, _, spellId = AuraUtil.FindAuraByName(tonumber(spell) and GetSpellInfo(tonumber(spell)) or spell,target, (owner == "PLAYERS") and "PLAYER|HARMFUL" or "HARMFUL")
 	-- Fix for missing durations of some spells
 	local strSpellId = spellId and tostring(spellId) or ( (type(spell) == "number") and tostring(spell) or ClassMods.NameToSpellID(spell) )
 	if (target == "target") and strSpellId and ClassMods.spellTracker.spells[strSpellId] then

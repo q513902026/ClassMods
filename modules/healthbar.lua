@@ -252,7 +252,7 @@ function ClassMods.SetupHealthBar()
 					self:SetAlpha(0) -- Hide for pet battles
 				elseif ClassMods.db.profile.healthbar.deadoverride and UnitIsDeadOrGhost("player") then
 					self:SetAlpha(ClassMods.db.profile.healthbar.deadoverridealpha)
-				elseif ClassMods.db.profile.healthbar.mountoverride and (IsMounted() or UnitHasVehicleUI("player") ) and (AuraUtil.FindAuraByName( "Telaari Talbuk","player") == nil) and (AuraUtil.FindAuraByName( "Frostwolf War Wolf","player") == nil) and (AuraUtil.FindAuraByName("Rune of Grasping Earth",,"player") == nil) then
+				elseif ClassMods.db.profile.healthbar.mountoverride and (IsMounted() or UnitHasVehicleUI("player") ) and (AuraUtil.FindAuraByName( "Telaari Talbuk","player") == nil) and (AuraUtil.FindAuraByName( "Frostwolf War Wolf","player") == nil) and (AuraUtil.FindAuraByName("Rune of Grasping Earth","player") == nil) then
 					self:SetAlpha(ClassMods.db.profile.healthbar.mountoverridealpha)
 				elseif ClassMods.db.profile.healthbar.oocoverride and (not InCombatLockdown() ) then
 					self:SetAlpha(ClassMods.db.profile.healthbar.oocoverridealpha)

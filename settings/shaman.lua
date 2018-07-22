@@ -284,6 +284,8 @@ ClassMods.alertDefaults = {
 		target = "player",
 		sparkles = true
 	},
+	--//TODO 
+	--[[
 	[select(1, GetSpellInfo(16164))] = {	--	Elemental Focus
 		enabled = true,
 		alerttype = "BUFF",
@@ -293,6 +295,7 @@ ClassMods.alertDefaults = {
 		target = "player",
 		sparkles = true
 	},
+	--]]
 	[select(1, GetSpellInfo(215785))] = {	--	Hot Hand
 		enabled = true,
 		alerttype = "BUFF",

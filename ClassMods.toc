@@ -1,7 +1,7 @@
-﻿## Interface: 70300
-## Title: |cffFF4500ClassMods|r v7.3.0.1
+﻿## Interface: 80000
+## Title: |cffFF4500ClassMods|r v8.0.0
 ## Notes: ClassMods is based on the concepts of JSHB by _JS_
-## Version: v7.3.0.1
+## Version: v8.0.0.0
 ## SavedVariables: CMDb
 ## LoadOnDemand: 0
 ## DefaultState: enabled
