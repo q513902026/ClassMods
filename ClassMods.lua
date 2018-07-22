@@ -1046,34 +1046,6 @@ function ClassMods.MakeBackground(parent, d, pre, sizeOverrides, recycle)
 	return background
 end
 
-do
-	local function IDPredicate(auraIDToFind,_,_, _,_,_,_,_,_,_,_,_,spellID)
-		return auraIDToFind == spellID
-	end
-	function buildFindAuraBySpellID()
-		AuraUtil.FindAuraBySpellID = function(spellID,unit,filter)
-			AuraUtil.FindAura(IDPredicate,unit,filter,spellID)
-		end
-	end
-end
-
-
-function ClassMods.FindAuraBySpell(spell,unit,filter)
-	if AuraUtil then
-		if type(spellID) == "number" then
-			if not AuraUtil.FindAuraBySpellID then
-				buildFindAuraBySpellID()
-			end
-			return AuraUtil.FindAuraBySpellID(spell,unit,filter)
-		elseif type(spellID) == "string" then
-			return AuraUtil.FindAuraByName(spell,unit,filter)
-		else
-			error("spell must number or string")
-		end
-	else
-		return UnitAura(unit,tonumber(spell) and GetSpellInfo(spell) or spell ,nil,filter)
-	end
-end
 --
 -- Configuration
 --

@@ -3,6 +3,7 @@
 --
 
 local L = LibStub("AceLocale-3.0"):GetLocale("ClassMods")
+local LibAura = LibStub:GetLibrary("LibAuraUtil-1.0")
 local select, UnitAura = select, UnitAura
 local _
 
@@ -443,7 +444,7 @@ function ClassMods.SetupResourceBar()
 					self:SetAlpha(0) -- Hide for pet battles
 				elseif ClassMods.db.profile.resourcebar.deadoverride and UnitIsDeadOrGhost("player") then
 					self:SetAlpha(ClassMods.db.profile.resourcebar.deadoverridealpha)
-				elseif ClassMods.db.profile.resourcebar.mountoverride and (IsMounted() or UnitHasVehicleUI("player") ) and (AuraUtil.FindAuraByName("Telaari Talbuk","player") == nil) and (AuraUtil.FindAuraByName("Frostwolf War Wolf","player") == nil) and (AuraUtil.FindAuraByName("Rune of Grasping Earth","player") == nil) then
+				elseif ClassMods.db.profile.resourcebar.mountoverride and (IsMounted() or UnitHasVehicleUI("player") ) and (LibAura.UnitBuff( "Telaari Talbuk","player") == nil) and (LibAura.UnitBuff( "Frostwolf War Wolf","player") == nil) and (LibAura.UnitBuff("Rune of Grasping Earth","player") == nil) then
 					self:SetAlpha(ClassMods.db.profile.resourcebar.mountoverridealpha)
 				elseif ClassMods.db.profile.resourcebar.oocoverride and (not InCombatLockdown() ) then
 					self:SetAlpha(ClassMods.db.profile.resourcebar.oocoverridealpha)

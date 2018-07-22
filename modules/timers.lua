@@ -3,6 +3,7 @@
 --
 
 local L = LibStub("AceLocale-3.0"):GetLocale("ClassMods")
+local LibAura = LibStub:GetLibrary("LibAuraUtil-1.0")
 local select, mod, ceil, floor, min, tinsert, tremove = select, mod, ceil, floor, min, tinsert, tremove
 local FRAMEPOOL = {} -- recycle frames
 
@@ -705,7 +706,7 @@ function ClassMods.SetupTimers()
 
 					elseif ClassMods.db.profile.timers[key].deadoverride and UnitIsDeadOrGhost("player") then
 						self:SetAlpha(ClassMods.db.profile.timers[key].deadoverridealpha)
-					elseif ClassMods.db.profile.timers[key].mountoverride and (IsMounted() or UnitHasVehicleUI("player") ) and (AuraUtil.FindAuraByName("Telaari Talbuk","player") == nil) and (AuraUtil.FindAuraByName( "Frostwolf War Wolf","player") == nil) and (AuraUtil.FindAuraByName("Rune of Grasping Earth","player") == nil) then
+					elseif ClassMods.db.profile.timers[key].mountoverride and (IsMounted() or UnitHasVehicleUI("player") ) and (LibAura.UnitBuff( "Telaari Talbuk","player") == nil) and (LibAura.UnitBuff( "Frostwolf War Wolf","player") == nil) and (LibAura.UnitBuff("Rune of Grasping Earth","player") == nil)  then
 						self:SetAlpha(ClassMods.db.profile.timers[key].mountoverridealpha)
 					elseif ClassMods.db.profile.timers[key].oocoverride and (not InCombatLockdown() ) then
 						self:SetAlpha(ClassMods.db.profile.timers[key].oocoverridealpha)
