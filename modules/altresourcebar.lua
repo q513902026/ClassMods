@@ -10,7 +10,7 @@ local LibAura = LibStub:GetLibrary("LibAuraUtil-1.0")
  SPELL_POWER_SOUL_SHARDS = SPELL_POWER_SOUL_SHARDS or Enum.PowerType.SoulShards
  SPELL_POWER_CHI = SPELL_POWER_CHI or Enum.PowerType.Chi
  SPELL_POWER_COMBO_POINTS = SPELL_POWER_COMBO_POINTS or Enum.PowerType.ComboPoints
-
+ SPELL_POWER_ENERGY = SPELL_POWER_ENERGY or Enum.PowerType.Energy
 --
 -- Setup Alternate Resource Bar
 --
