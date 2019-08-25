@@ -46,16 +46,16 @@ function ClassMods:OnInitialize()
 	media:Register("background", "Blizzard Tooltip", [[Interface\Tooltips\UI-Tooltip-Background]])
 	media:Register("background", "Solid", [[Interface\Buttons\WHITE8X8]])
 	-- Sounds
-	media:Register("sound", "Alliance Bell", [[Sound\Doodad\BellTollAlliance.ogg]])
-	media:Register("sound", "Cannon Blast", [[Sound\Doodad\Cannon01_BlastA.ogg]])
-	media:Register("sound", "Classic", [[Sound\Doodad\BellTollNightElf.ogg]])
-	media:Register("sound", "Ding", [[Sound\interface\AlarmClockWarning3.ogg]])
-	media:Register("sound", "Dynamite", [[Sound\Spells\DynamiteExplode.ogg]])
-	media:Register("sound", "Gong", [[Sound\Doodad\G_GongTroll01.ogg]])
-	media:Register("sound", "Horde Bell", [[Sound\Doodad\BellTollHorde.ogg]])
-	media:Register("sound", "Raid Warning", [[Sound\interface\RaidWarning.ogg]])
-	media:Register("sound", "Serpent", [[Sound\Creature\TotemAll\SerpentTotemAttackA.ogg]])
-	media:Register("sound", "Tribal Bell", [[Sound\Doodad\BellTollTribal.ogg]])
+	media:Register("sound", "Alliance Bell", [[566564]])--[[Sound\Doodad\BellTollAlliance.ogg]]
+	media:Register("sound", "Cannon Blast", [[566101]])--[[Sound\Doodad\Cannon01_BlastA.ogg]]
+	media:Register("sound", "Classic", [[566558]])--[[Sound\Doodad\BellTollNightElf.ogg]]
+	media:Register("sound", "Ding", [[567458]])--[[Sound\interface\AlarmClockWarning3.ogg]]
+	media:Register("sound", "Dynamite", [[569406]])--[[Sound\Spells\DynamiteExplode.ogg]]
+	media:Register("sound", "Gong", [[565564]])--[[Sound\Doodad\G_GongTroll01.ogg]]
+	media:Register("sound", "Horde Bell", [[565853]])--[[Sound\Doodad\BellTollHorde.ogg]]
+	media:Register("sound", "Raid Warning", [[567397]])--[[Sound\interface\RaidWarning.ogg]]
+	media:Register("sound", "Serpent", [[562736]])--[[Sound\Creature\TotemAll\SerpentTotemAttackA.ogg]]
+	media:Register("sound", "Tribal Bell", [[566027]])--[[Sound\Doodad\BellTollTribal.ogg]]
 
 	-- Register Slash commands
 	SlashCmdList["ClassMods"] = ClassMods.SlashProcessor_ClassMods
@@ -235,7 +235,7 @@ function ClassMods.GetActiveFont(key, index, returnKey)
 end
 
 function ClassMods.GetActiveSoundFile(key, default, returnKey)
-	return media:Fetch("sound", key or "Raid Warning")
+	return tonumber(media:Fetch("sound", key or "Raid Warning"))
 end
 
 function ClassMods.GetActiveTextureFile(key, default, returnKey)
