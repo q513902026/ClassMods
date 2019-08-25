@@ -1,4 +1,4 @@
-﻿## Interface: 80000
+﻿## Interface: 80200
 ## Title: |cffFF4500ClassMods|r v8.0.0
 ## Notes: ClassMods is based on the concepts of JSHB by _JS_
 ## Version: v8.0.0.0
