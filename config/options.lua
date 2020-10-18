@@ -181,8 +181,10 @@ do
 	button:SetPoint("CENTER", -25.0, -76.0)
 	button:SetMovable(true)
 	button:SetUserPlaced(true)
-	button:SetNormalTexture("Interface\\TargetingFrame\\UI-Classes-Circles")
-	button:GetNormalTexture():SetTexCoord(unpack(CLASS_ICON_TCOORDS[strupper(class)]))
+	button.Icon = button:CreateTexture(nil, "ARTWORK")
+	button.Icon:SetAllPoints()
+	button.Icon:SetTexture("Interface\\TargetingFrame\\UI-Classes-Circles")
+	button.Icon:SetTexCoord(unpack(CLASS_ICON_TCOORDS[strupper(class)]))
 	button:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
 	
 	button.border = button:CreateTexture(nil, "OVERLAY")

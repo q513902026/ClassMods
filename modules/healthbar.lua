@@ -221,7 +221,7 @@ function ClassMods.SetupHealthBar()
 
 		-- Register Events to support the bar
 		ClassMods.F.HealthBar:RegisterUnitEvent("UNIT_MAXHEALTH", "player")
-		ClassMods.F.HealthBar:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", "player")
+		ClassMods.F.HealthBar:RegisterUnitEvent("UNIT_HEALTH", "player")
 		ClassMods.F.HealthBar:RegisterUnitEvent("UNIT_ABSORB_AMOUNT_CHANGED", "player")
 		ClassMods.F.HealthBar:SetScript("OnEvent",
 			function(self, event, ...)
@@ -229,7 +229,7 @@ function ClassMods.SetupHealthBar()
 
 				if (event == "UNIT_MAXHEALTH") then
 					self:SetMinMaxValues(0, UnitHealthMax("player") )
-				elseif (event == "UNIT_HEALTH_FREQUENT") then
+				elseif (event == "UNIT_HEALTH") then
 					ClassMods.updateIncomingHeals()
 					ClassMods.updateAbsorbs()
 				elseif (event == "UNIT_ABSORB_AMOUNT_CHANGED") and (ClassMods.db.profile.healthbar.incomingheals) then

@@ -332,9 +332,10 @@ ClassMods.announcementDefaults = {
 		arenachan = "AUTO",
 		pvpchan = "AUTO",
 	},
-	[select(1, GetSpellInfo(204150))] = { -- Aegis of Light
+	--[[
+	[select(1, GetSpellInfo(31821))] = { -- 光环掌握
 		enabled = true,
-		spellid = 204150,
+		spellid = 31821,
 		announceend = true,
 		solochan = "AUTO",
 		partychan = "AUTO",
@@ -342,6 +343,7 @@ ClassMods.announcementDefaults = {
 		arenachan = "AUTO",
 		pvpchan = "AUTO",
 	},
+	]]--
 	[select(1, GetSpellInfo(642))] = { -- Divine Shield
 		enabled = true,
 		spellid = 642,

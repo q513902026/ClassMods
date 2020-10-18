@@ -201,42 +201,48 @@ end
 
 function ClassMods.LockAllMovers()
 
-	if ClassMods.DirectMovementFrame then ClassMods.DirectMovementFrame:Release() end
+	if ClassMods.DirectMovementFrame then 
+		ClassMods.DirectMovementFrame:Release()
+		ClassMods.DirectMovementFrame:ReleaseChildren()
+		ClassMods.DirectMovementFrame:Hide()
+	end
 
 	local i = #movers
 	while (i > 0) and movers[i] do
-		movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][1],
-		movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2],
-		movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][3],
-		movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][4],
-		movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][5] = movers[i][moverFrame]:GetPoint()
-
-		if (movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2] == UIParent) then movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2] = nil end
+		if movers[i][moverFrame] then
+			movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][1],
+			movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2],
+			movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][3],
+			movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][4],
+			movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][5] = movers[i][moverFrame]:GetPoint()
+		
+			if (movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2] == UIParent) then movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2] = nil end
 
 		-- Destroy the mover frames
-		movers[i][moverFrame]:Hide()
-		movers[i][moverFrame]:StopMovingOrSizing()
-		movers[i][moverFrame]:SetMovable(false)
-		movers[i][moverFrame]:EnableMouse(false)
+			movers[i][moverFrame]:Hide()
+			movers[i][moverFrame]:StopMovingOrSizing()
+			movers[i][moverFrame]:SetMovable(false)
+			movers[i][moverFrame]:EnableMouse(false)
 
-		if movers[i][moverFrame].background then
-			movers[i][moverFrame].background:Hide()
-		end
+			if movers[i][moverFrame].background then
+				movers[i][moverFrame].background:Hide()
+			end
 
-		movers[i][moverFrame]:SetParent(nil)
-		tinsert(FRAMEPOOL, movers[i][moverFrame])
-		movers[i][moverFrame] = nil
-
+			movers[i][moverFrame]:SetParent(nil)
+			tinsert(FRAMEPOOL, movers[i][moverFrame])
+			movers[i][moverFrame] = nil
+			end
+		
 		-- Run the setup function if one was given to do any frame updating because of the move.
 		-- If a Setup function is given, that setup function needs to de-register the mover frame properly.
-		if movers[i][setupCaller] then
-			movers[i][setupCaller](movers[i][moverName])
-		else
-			tinsert(MOVERPOOL, movers[i])
-			tremove(movers, i)
+			if movers[i][setupCaller] then
+				movers[i][setupCaller](movers[i][moverName])
+			else
+				tinsert(MOVERPOOL, movers[i])
+				tremove(movers, i)
+			end
+			i = i - 1
 		end
-		i = i - 1
-	end
 	collectgarbage("collect")
 end
 
