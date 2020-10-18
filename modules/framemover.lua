@@ -141,7 +141,7 @@ function ClassMods.UnlockAllMovers()
 	ClassMods.DirectMovementFrame = CreateDirectMovementFrame()
 
 	for i=1,#movers do
-		movers[i][moverFrame] = ClassMods.MakeFrame(movers[i][moverFrame] or tremove(FRAMEPOOL), "Frame", nil, movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2] == nil and UIParent or movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2])
+		movers[i][moverFrame] = ClassMods.MakeFrame(movers[i][moverFrame] or tremove(FRAMEPOOL), "Frame", nil, movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2] == nil and UIParent or movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2],BackdropTemplateMixin and "BackdropTemplate")
 		movers[i][moverFrame]:SetParent(movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2] == nil and UIParent or movers[i][moverAnchor]["anchor"..movers[i][anchorKeyPost] ][2])
 		movers[i][moverFrame]:ClearAllPoints()
 		movers[i][moverFrame]:SetSize(movers[i][widthOverride] or movers[i][sizeFrame]:GetWidth(), movers[i][heightOverride] or movers[i][sizeFrame]:GetHeight() )
