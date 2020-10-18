@@ -986,7 +986,7 @@ function ClassMods.MakeBackground(parent, d, pre, sizeOverrides, recycle)
 		return recycle or nil
 	end
 
-	local background = recycle or CreateFrame("Frame", nil, parent)
+	local background = recycle or CreateFrame("Frame", nil, parent,BackdropTemplateMixin and "BackdropTemplate")
 	background:ClearAllPoints()
 	background:SetFrameStrata("MEDIUM")
 	background:SetFrameLevel( ( (parent:GetFrameLevel() - 1) >= 0) and (parent:GetFrameLevel() - 1) or 0)
