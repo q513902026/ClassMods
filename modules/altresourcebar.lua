@@ -53,7 +53,6 @@ function ClassMods.SetupAltResourceBar()
 	
 	if (playerClass == "MAGE") and (playerSpec ~= 1) then destroyAltResourceBar(); return end -- Not Arcane Mage
 	if (playerClass == "MONK") and (playerSpec == 2) then destroyAltResourceBar(); return end -- Mistweaver Monk
-	if (playerClass == "PALADIN") and (playerSpec ~= 3) then destroyAltResourceBar(); return end -- Not Retribution Paladin
 	
 	local iconTexture, atlasOn, atlasOff, numIcons
 
@@ -82,7 +81,7 @@ function ClassMods.SetupAltResourceBar()
 		atlasOff = "MonkUI-OrbOff"
 		numIcons = UnitPowerMax("player", SPELL_POWER_CHI)
 	--PALADIN
-	elseif (playerClass == "PALADIN") and (playerSpec == 3) then -- Retribution Paladin
+	elseif (playerClass == "PALADIN") then -- Retribution Paladin
 		iconTexture = "Interface\\PlayerFrame\\ClassOverlayHolyPower"
 		atlasOn = { "nameplates-holypower1-on", "nameplates-holypower2-on", "nameplates-holypower3-on", "nameplates-holypower4-on", "nameplates-holypower4-on" }
 		atlasOff = { "nameplates-holypower1-off", "nameplates-holypower2-off", "nameplates-holypower3-off", "nameplates-holypower4-off", "nameplates-holypower4-off" }
@@ -164,7 +163,7 @@ function ClassMods.SetupAltResourceBar()
 					ClassMods.F.AltResourceBar.Icon[i].Texture:SetAllPoints(ClassMods.F.AltResourceBar.Icon[i])
 				else
 					ClassMods.F.AltResourceBar.Icon[i].Texture = ClassMods.F.AltResourceBar.Icon[i].Texture or ClassMods.F.AltResourceBar.Icon[i]:CreateTexture(iconTexture, "ARTWORK")
-					if (playerClass == "PALADIN") and (playerSpec == 3) then -- Retribution
+					if (playerClass == "PALADIN") then -- Paladin always has holyPower
 						ClassMods.F.AltResourceBar.Icon[i].Texture:SetAtlas(atlasOff[i], false)
 					else
 						ClassMods.F.AltResourceBar.Icon[i].Texture:SetAtlas(atlasOff, false)
@@ -249,7 +248,7 @@ function ClassMods.SetupAltResourceBar()
 								if (ClassMods.db.profile.altresourcebar.basicmode) then
 									ClassMods.F.AltResourceBar.Icon[i].Texture:SetColorTexture(unpack(ClassMods.db.profile.altresourcebar.barcoloron))
 								else
-									if (playerClass == "PALADIN") and (playerSpec == 3) then -- Retribution
+									if (playerClass == "PALADIN")  then -- ALL Paladin
 										ClassMods.F.AltResourceBar.Icon[i].Texture:SetAtlas(atlasOn[i], false)
 									else
 										ClassMods.F.AltResourceBar.Icon[i].Texture:SetAtlas(atlasOn, false)

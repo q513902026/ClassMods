@@ -1,6 +1,16 @@
 - Support site http://jshbclassmods.proboards.com
 - ClassMods is based on JSHB by _JS_
+- Modified is qfeizaijun on bbs.nga.cn  
 - Follow me on Twitter '@kaelythWoW' or Facebook, YouTube 'kaelythwow' (nothing here yet)
+
+9.0.0
+- Updated Ace3.0 Libs to help with SetBackdrop function change. SetBackdrop must mixin BackdropTemplateMixin
+- Paladin all spec now have holypower.
+
+8.0.0.0
+- add ENUM_POWER_TYPE contents
+- add LibAuraUtil-1.0 to fix UnitAura not use spellID
+- support Warlock SOUL_SHARD_PARTS power
 
 7.3.0.1
 - Updated Ace3.0 Libs to help with the PlaySound function change.
