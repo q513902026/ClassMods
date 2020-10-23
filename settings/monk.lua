@@ -293,15 +293,6 @@ ClassMods.alertDefaults = {
 		target = "player",
 		sparkles = true,
 	},
-	[select(1, GetSpellInfo(197206))] = { -- Uplifting Trance
-		enabled = true,
-		alerttype = "BUFF",
-		enablesound = true,
-		sound = "Ding",
-		aura = 197206,
-		target = "player",
-		sparkles = true,
-	},
 	[select(1, GetSpellInfo(124275))] = { -- Light Stagger
 		enabled = true,
 		alerttype = "DEBUFF",

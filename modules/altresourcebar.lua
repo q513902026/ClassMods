@@ -47,6 +47,16 @@ local function destroyAltResourceBar()
 	end
 end
 
+local RUNE_KEY_BY_SPEC = {
+	[1] = "Blood",
+	[2] = "Frost",
+	[3] = "Unholy",
+};
+
+local function GetRuneKeyBySpec(specIndex)
+	return RUNE_KEY_BY_SPEC[specIndex] or "Base";
+end
+
 function ClassMods.SetupAltResourceBar()
 	local playerClass = select(2, UnitClass("player"))
 	local playerSpec = GetSpecialization()
@@ -57,10 +67,18 @@ function ClassMods.SetupAltResourceBar()
 	local iconTexture, atlasOn, atlasOff, numIcons
 
 	--DEATHKNIGHT
+	--[[
 	if (playerClass == "DEATHKNIGHT") then
 		iconTexture = "Interface\\PlayerFrame\\ClassOverlayDeathKnight"
 		atlasOn = "ClassOverlay-Rune"
 		atlasOff = "ClassOverlay-Rune"
+		numIcons = 6
+	--]]
+	-- https://github.com/tomrus88/BlizzardInterfaceCode/blob/b193986106e8187e7978e99a461d0e11f7d85483/Interface/FrameXML/RuneFrame.lua#L143
+	if (playerClass == "DEATHKNIGHT") then
+		iconTexture = "Interface\\PlayerFrame\\DK-"..GetRuneKeyBySpec(playerSpec).."-Rune-CDFill"
+		atlasOn = "DK-"..GetRuneKeyBySpec(playerSpec).."-Rune-Ready"
+		atlasOff = "DK-"..GetRuneKeyBySpec(playerSpec).."-Rune-Ready"
 		numIcons = 6
 	--DRUID & ROGUE
 	elseif (playerClass == "DRUID") or (playerClass == "ROGUE") then
