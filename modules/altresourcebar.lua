@@ -314,7 +314,7 @@ function ClassMods.SetupAltResourceBar()
 								if (ClassMods.db.profile.altresourcebar.basicmode) then
 									ClassMods.F.AltResourceBar.Icon[i].Texture:SetColorTexture(unpack(ClassMods.db.profile.altresourcebar.barcoloroff))
 								else
-									if (playerClass == "PALADIN") and (playerSpec == 3) then -- Retribution
+									if (playerClass == "PALADIN") then 
 										ClassMods.F.AltResourceBar.Icon[i].Texture:SetAtlas(atlasOff[i], false)
 									else
 										ClassMods.F.AltResourceBar.Icon[i].Texture:SetAtlas(atlasOff, false)
