@@ -205,7 +205,7 @@ function ClassMods.SetupTotemTimers()
 			s._, s._subEvent, s._, s._sourceGUID, s._, s._sourceFlags, s._, s._destGUID, s._destName, s._destFlags, s._, s._spellId = CombatLogGetCurrentEventInfo()
 			if (s._subEvent == "SPELL_CAST_SUCCESS") and (s._sourceGUID == UnitGUID("player")) then
 				for i=1,#ClassMods.db.profile.totemtimers.totems do
-					print(specialSpellTotem[s._spellId],s._spellId)
+					--print(specialSpellTotem[s._spellId],s._spellId)
 					if specialSpellTotem[s._spellId] and (ClassMods.db.profile.totemtimers.totems[i][1] == true) and (s._spellId == ClassMods.db.profile.totemtimers.totems[i][2])  then
 						refreshTotemTimer(s._spellId, ClassMods.db.profile.totemtimers.totems[i][3])
 					elseif (ClassMods.db.profile.totemtimers.totems[i][1] == true) and (s._spellId == ClassMods.db.profile.totemtimers.totems[i][2]) then
