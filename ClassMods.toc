@@ -1,7 +1,7 @@
 ﻿## Interface: 90001
 ## Title: |cffFF4500ClassMods|r v9.0.0
 ## Notes: ClassMods is based on the concepts of JSHB by _JS_
-## Version: v9.0.0.0
+## Version: v9.0.1.0
 ## SavedVariables: CMDb
 ## LoadOnDemand: 0
 ## DefaultState: enabled

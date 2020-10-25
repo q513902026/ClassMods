@@ -183,8 +183,21 @@ function ClassMods.SetupTotemTimers()
 				end
 			end
 		end)
-
+	
 	-- Event handler
+
+	-- 145205: Efflorescence
+	-- 205022: Arcane Familiar
+	-- 115313: Jade Serpent Statue
+    -- 115315: Black Ox Statue de
+	-- 26573: Consercration
+	local specialSpellTotem = {
+		[145205] = true,
+		[205022] = true,
+		[115313] = true,
+		[115315] = false, -- 在刷新后会触发TOTEM_UPDATE事件导致计时条消失 所以不进行刷新
+		[26573]  = true, 
+	}
 	ClassMods.F.Totems:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	ClassMods.F.Totems:RegisterEvent("PLAYER_TOTEM_UPDATE")
 	ClassMods.F.Totems:SetScript("OnEvent",
@@ -192,11 +205,8 @@ function ClassMods.SetupTotemTimers()
 			s._, s._subEvent, s._, s._sourceGUID, s._, s._sourceFlags, s._, s._destGUID, s._destName, s._destFlags, s._, s._spellId = CombatLogGetCurrentEventInfo()
 			if (s._subEvent == "SPELL_CAST_SUCCESS") and (s._sourceGUID == UnitGUID("player")) then
 				for i=1,#ClassMods.db.profile.totemtimers.totems do
-					-- 145205: Efflorescence
-					-- 205022: Arcane Familiar
-					-- 115313: Jade Serpent Statue
-					-- 115315: Black Ox Statue
-					if (s._spellId == 145205) or (s._spellId == 205022) or (s._spellId == 115313) or (s._spellId == 115315) then
+					print(specialSpellTotem[s._spellId],s._spellId)
+					if specialSpellTotem[s._spellId] and (ClassMods.db.profile.totemtimers.totems[i][1] == true) and (s._spellId == ClassMods.db.profile.totemtimers.totems[i][2])  then
 						refreshTotemTimer(s._spellId, ClassMods.db.profile.totemtimers.totems[i][3])
 					elseif (ClassMods.db.profile.totemtimers.totems[i][1] == true) and (s._spellId == ClassMods.db.profile.totemtimers.totems[i][2]) then
 						addTotemTimer(s._spellId, ClassMods.db.profile.totemtimers.totems[i][3])
@@ -206,6 +216,7 @@ function ClassMods.SetupTotemTimers()
 				local totemIndex = ...
 				local haveTotem, name, startTime, duration, icon = GetTotemInfo(totemIndex)
 				if (ClassMods.F.Totems.timer[totemIndex].active == true) and (not haveTotem) then
+					--print(totemIndex,ClassMods.F.Totems.timer[totemIndex].spellID)
 					stopTotemTimer(ClassMods.F.Totems.timer[totemIndex].spellID)
 				end
 			end

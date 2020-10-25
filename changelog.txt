@@ -1,7 +1,13 @@
 - Support site http://jshbclassmods.proboards.com
 - ClassMods is based on JSHB by _JS_
-- Modified is qfeizaijun on bbs.nga.cn  
+- Modified is qfeizaijun on bbs.nga.cn  github: https://github.com/q513902026/ClassMods
 - Follow me on Twitter '@kaelythWoW' or Facebook, YouTube 'kaelythwow' (nothing here yet)
+
+9.0.1
+- fix DeathKnight rune icon error
+- fix Monk load error because setting has invild spell
+- fix Paladin Protected and Holy 's HolyPower icon error
+- fix totemTimer refreshTotemTimer 
 
 9.0.0
 - Updated Ace3.0 Libs to help with SetBackdrop function change. SetBackdrop must mixin BackdropTemplateMixin

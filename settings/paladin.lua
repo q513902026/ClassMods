@@ -410,6 +410,5 @@ ClassMods.totems
 ClassMods.enableTotems = true
 ClassMods.totems = {
 	{ true, 26573,	12	}, -- Consercration
-	{ false, 205228, 11	}, -- Consercration (Retribution)
 	{ true, 114158, 14	}, -- Light's Hammer
 }
